@@ -2,10 +2,11 @@ import React from 'react';
 
 class ImageList extends React.Component {
     render() {
-        const images = this.props.images.map(image => <img src={image.urls.regular} />);
+        const images = this.props.images.map(image => 
+        <img alt={image.description} key={image.id} src={image.urls.regular} />);
+
         return <div> {images} </div>;
     }
-
 }
 
 export default ImageList;
