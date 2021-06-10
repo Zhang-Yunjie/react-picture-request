@@ -9,8 +9,13 @@ class App extends React.Component {
     state = {};
 
     onSearchSubmit(term) {
-        console.log(term)
-    } ;
+        axios.get('https://api.unsplash.com/search/photos',{
+            params: {query: term },
+            headers: {
+                Authorization: 'Client-ID 5hTLtlPDFAfdPC5sQCkC1OOEZaW9d6qfBRA2FMQs7XI'
+            }
+        });
+    }
 
     render() {
         return (
