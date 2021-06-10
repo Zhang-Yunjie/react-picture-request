@@ -8,13 +8,17 @@ class App extends React.Component {
 
     state = {};
 
-    onSearchSubmit(term) {
-        axios.get('https://api.unsplash.com/search/photos',{
+    async onSearchSubmit(term) {
+        const response = await axios
+        .get('https://api.unsplash.com/search/photos',{
             params: {query: term },
             headers: {
                 Authorization: 'Client-ID 5hTLtlPDFAfdPC5sQCkC1OOEZaW9d6qfBRA2FMQs7XI'
             }
         });
+        //.then(response => console.log(response.data.results));
+
+        console.log(response.data.results);
     }
 
     render() {
@@ -25,7 +29,6 @@ class App extends React.Component {
             </div>
         );
     };
-    
 };
 
 export default App;
